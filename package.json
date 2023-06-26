@@ -1,0 +1,38 @@
+{
+  "name": "material-next-app-router-ts",
+  "version": "5.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+  },
+  "dependencies": {
+    "@egjs/react-view360": "^4.0.0-beta.7",
+    "@egjs/view360": "^3.6.4",
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@uiw/react-md-editor": "^3.23.3",
+    "axios": "^1.4.0",
+    "axios-hooks": "^4.0.0",
+    "keen-slider": "^6.8.5",
+    "markdown-it": "^13.0.1",
+    "markdown-to-jsx": "^7.2.1",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "typescript": "latest"
+  }
+}
