@@ -1,55 +1,44 @@
 'use client';
 
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Header from '@/components/main/Header';
+import Footer from '@/components/main/Footer';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import {  Card, CardContent, CardMedia, CardActions } from '@mui/material';
+import { useRouter } from 'next/navigation';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Antaratma
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const sections = [
+  { title: 'Home', url: '#' },
+  { title: 'Pameran', url: '#' },
+  { title: 'Blog', url: '#' },
+  { title: 'Tentang Kami', url: '#' },
+];
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function About() {
+  const { push } = useRouter();
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
-        {/* Hero unit */}
+      <Container maxWidth="xl">
+        <Header title="Antaratma" sections={sections} />
+        <main>
+          {/* <MainFeaturedPost post={mainFeaturedPost} /> */}
+          {/* <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+              <FeaturedPost key={post.title} post={post} />
+            ))}
+          </Grid> */}
+          {/* <Grid container spacing={5} sx={{ mt: 3 }}> */}
         <Box
           sx={{
             bgcolor: 'background.paper',
@@ -57,22 +46,135 @@ export default function About() {
             pb: 6,
           }}
         >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
+          <Container maxWidth="lg">
+            {/* <Typography
+              component="h3"
+              variant="h4"
               align="center"
               color="text.primary"
               gutterBottom
             >
-              Album layout
+              Kunjungi Pameran
             </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Something short and leading about the collection below—its contents,
-              the creator, etc. Make it short and sweet, but not too short so folks
-              don&apos;t simply skip over it entirely.
+            <Typography align="center" color="text.secondary" paragraph>
+            Anda dapat mencari Pameran baik yang dilaksanakan secara online maupun offline
             </Typography>
-            <Stack
+            
+            <Grid sx={{ pt: 14 }}>
+              <CardActionArea component="a" href="#">
+                <Card sx={{ display: 'flex' }}>
+                  <CardContent sx={{ flex: 1, pr: 8, pt: 6 }}>
+                    <Typography component="h2" variant="h4" sx={{ mb: 3 }}>
+                    Pameran Offline
+                    </Typography>
+                    <Typography variant="subtitle1" paragraph>
+                    Nikmati pengalaman langsung dalam mengunjungi pameran offline terbaru kami. Dapatkan kesempatan untuk melihat produk-produk unggulan dari para peserta pameran. Jangan lewatkan kesempatan ini!
+                    </Typography>
+                    <Typography variant="subtitle1" color="text.secondary">
+                      {sectionsOffline.map((e) => (
+                      <Chip label={e.title} sx={{ mb: 1, mr: 1 }} />
+                      ))}
+                    </Typography>
+                    <Typography variant="subtitle1" color="primary" sx={{ mt: 1 }}>
+                    Lihat Semua...
+                    </Typography>
+                  </CardContent>
+                  <CardMedia
+                    component="img"
+                    sx={{ width: '50%', display: { xs: 'none', sm: 'block' } }}
+                    image={'https://vps.chipkoding.tech/upload/img/point-4.jpg'}
+                    alt={'....'}
+                  />
+                </Card>
+              </CardActionArea>
+            </Grid>
+            
+            <Grid sx={{ pt: 14 }}>
+              <CardActionArea component="a" href="#">
+                <Card sx={{ display: 'flex' }}>
+                  <CardMedia
+                    component="img"
+                    sx={{ width: '50%', display: { xs: 'none', sm: 'block' } }}
+                    image={'https://vps.chipkoding.tech/upload/img/point-3.jpg'}
+                    alt={'....'}
+                  />
+                  <CardContent sx={{ flex: 1, pl: 8, pt: 6 }}>
+                    <Typography component="h2" variant="h4" 
+              align="right"
+              sx={{ mb: 3 }}>
+                    Pameran Online
+                    </Typography>
+                    <Typography variant="subtitle1"
+              align="right"
+              paragraph>
+                    Nikmati pengalaman langsung dalam mengunjungi pameran offline terbaru kami. Dapatkan kesempatan untuk melihat produk-produk unggulan dari para peserta pameran. Jangan lewatkan kesempatan ini!
+                    </Typography>
+                    <Typography variant="subtitle1"
+              align="right"
+              color="text.secondary">
+                      {sectionsOffline.map((e) => (
+                      <Chip label={e.title} sx={{ mb: 1, ml: 1 }} />
+                      ))}
+                    </Typography>
+                    <Typography variant="subtitle1"
+              align="right"
+              color="primary" sx={{ mt: 1 }}>
+                    Lihat Semua...
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </CardActionArea>
+            </Grid> */}
+
+            <Box sx={{ my:12 }} >
+            <Typography
+              component="h3"
+              variant="h4"
+              align="center"
+              color="text.primary"
+              gutterBottom
+            >
+              Artikel Antaratma
+            </Typography>
+            <Typography align="center" color="text.secondary" paragraph>
+            Kami menyediakan artikel-artikel terbaru seputar dunia pameran. Pelajari lebih lanjut tentang bagaimana memaksimalkan pengalaman dalam mengunjungi pameran dan tips-tips lainnya seputar dunia pameran. Jangan lewatkan kesempatan untuk meningkatkan pengetahuan Anda tentang pameran!
+            </Typography>
+            </Box>
+
+            <Grid container spacing={4}>
+            {[1,2,3,4,5,6].map((e) => (
+        <Grid item xs={12} sm={6} md={4} key={e}>
+                  <Card
+                    sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  >
+                    <CardMedia
+                      component="div"
+                      sx={{
+                        // 16:9
+                        pt: '56.25%',
+                      }}
+                      image="https://source.unsplash.com/random?wallpapers"
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Heading
+                      </Typography>
+                      <Typography>
+                        This is a media card. You can use this section to describe the
+                        content.
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small" onClick={() => push('/artikel/'+e)} >View</Button>
+                      {/* <Button size="small">Edit</Button> */}
+                    </CardActions>
+                  </Card>
+                </Grid>
+        ))}
+            </Grid>
+
+            {/* <SwiperAutoSwitch direction={'rtl'} /> */}
+            {/* <Stack
               sx={{ pt: 4 }}
               direction="row"
               spacing={2}
@@ -80,60 +182,24 @@ export default function About() {
             >
               <Button variant="contained">Main call to action</Button>
               <Button variant="outlined">Secondary action</Button>
-            </Stack>
+            </Stack> */}
           </Container>
         </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
-                  <CardMedia
-                    component="div"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image="https://source.unsplash.com/random?wallpapers"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </main>
-      {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </Box>
-      {/* End footer */}
+            {/* <Main title="From the firehose" posts={posts} />
+            <Sidebar
+              title={sidebar.title}
+              description={sidebar.description}
+              archives={sidebar.archives}
+              social={sidebar.social}
+            /> */}
+          {/* </Grid> */}
+        </main>
+      </Container>
+      <Footer
+        title="Footer"
+        sections={sections}
+        description="Something here to give the footer a purpose!"
+      />
     </ThemeProvider>
   );
 }

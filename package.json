@@ -15,6 +15,7 @@
     "@emotion/cache": "latest",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
+    "@iconify/react": "^4.1.1",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@uiw/react-md-editor": "^3.23.3",
