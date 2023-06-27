@@ -160,24 +160,24 @@ export default function DetailArtikel() {
   const hotspots = data[srcNum]
 
   const listSrc = [
-    "https://vps.chipkoding.tech/upload/360/1.jpg",
-    "https://vps.chipkoding.tech/upload/360/2.jpg",
-    "https://vps.chipkoding.tech/upload/360/3.jpg",
-    "https://vps.chipkoding.tech/upload/360/4.jpg",
-    "https://vps.chipkoding.tech/upload/360/5.jpg",
-    "https://vps.chipkoding.tech/upload/360/6.jpg",
-    "https://vps.chipkoding.tech/upload/360/7.jpg",
-    "https://vps.chipkoding.tech/upload/360/8.jpg",
-    "https://vps.chipkoding.tech/upload/360/9.jpg",
-    "https://vps.chipkoding.tech/upload/360/10.jpg",
-    "https://vps.chipkoding.tech/upload/360/11.jpg",
-    "https://vps.chipkoding.tech/upload/360/12.jpg",
-    "https://vps.chipkoding.tech/upload/360/13.jpg",
-    "https://vps.chipkoding.tech/upload/360/14.jpg",
-    "https://vps.chipkoding.tech/upload/360/15.jpg",
-    "https://vps.chipkoding.tech/upload/360/16.jpg",
-    "https://vps.chipkoding.tech/upload/360/18.jpg",
-    "https://vps.chipkoding.tech/upload/360/19.jpg",
+    "vps.chipkoding.tech/upload/360/1.jpg",
+    "vps.chipkoding.tech/upload/360/2.jpg",
+    "vps.chipkoding.tech/upload/360/3.jpg",
+    "vps.chipkoding.tech/upload/360/4.jpg",
+    "vps.chipkoding.tech/upload/360/5.jpg",
+    "vps.chipkoding.tech/upload/360/6.jpg",
+    "vps.chipkoding.tech/upload/360/7.jpg",
+    "vps.chipkoding.tech/upload/360/8.jpg",
+    "vps.chipkoding.tech/upload/360/9.jpg",
+    "vps.chipkoding.tech/upload/360/10.jpg",
+    "vps.chipkoding.tech/upload/360/11.jpg",
+    "vps.chipkoding.tech/upload/360/12.jpg",
+    "vps.chipkoding.tech/upload/360/13.jpg",
+    "vps.chipkoding.tech/upload/360/14.jpg",
+    "vps.chipkoding.tech/upload/360/15.jpg",
+    "vps.chipkoding.tech/upload/360/16.jpg",
+    "vps.chipkoding.tech/upload/360/18.jpg",
+    "vps.chipkoding.tech/upload/360/19.jpg",
   ]
 
   const projection = useMemo(
@@ -200,24 +200,24 @@ export default function DetailArtikel() {
   //   () =>
   //     new CubemapProjection({
   //       src: [
-  //         "https://vps.chipkoding.tech/upload/360/1.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/2.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/3.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/4.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/5.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/6.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/7.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/8.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/9.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/10.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/11.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/12.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/13.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/14.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/15.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/16.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/18.jpg",
-  //         "https://vps.chipkoding.tech/upload/360/19.jpg",
+  //         "vps.chipkoding.tech/upload/360/1.jpg",
+  //         "vps.chipkoding.tech/upload/360/2.jpg",
+  //         "vps.chipkoding.tech/upload/360/3.jpg",
+  //         "vps.chipkoding.tech/upload/360/4.jpg",
+  //         "vps.chipkoding.tech/upload/360/5.jpg",
+  //         "vps.chipkoding.tech/upload/360/6.jpg",
+  //         "vps.chipkoding.tech/upload/360/7.jpg",
+  //         "vps.chipkoding.tech/upload/360/8.jpg",
+  //         "vps.chipkoding.tech/upload/360/9.jpg",
+  //         "vps.chipkoding.tech/upload/360/10.jpg",
+  //         "vps.chipkoding.tech/upload/360/11.jpg",
+  //         "vps.chipkoding.tech/upload/360/12.jpg",
+  //         "vps.chipkoding.tech/upload/360/13.jpg",
+  //         "vps.chipkoding.tech/upload/360/14.jpg",
+  //         "vps.chipkoding.tech/upload/360/15.jpg",
+  //         "vps.chipkoding.tech/upload/360/16.jpg",
+  //         "vps.chipkoding.tech/upload/360/18.jpg",
+  //         "vps.chipkoding.tech/upload/360/19.jpg",
   //         // "/egjs-view360/pano/cube/FishermansBastion/negx.jpg",
   //         // "/egjs-view360/pano/cube/FishermansBastion/posy.jpg",
   //         // "/egjs-view360/pano/cube/FishermansBastion/negy.jpg",
@@ -242,7 +242,7 @@ export default function DetailArtikel() {
         >
           Go back
         </Button>
-
+{/* 
         <Box
           sx={{
             width: "100%",
@@ -257,7 +257,7 @@ export default function DetailArtikel() {
             }}
             projection={projection}
           />
-        </Box>
+        </Box> */}
         {/* <View360 className="is-16by9" projection={projection} /> */}
 
         <Grid container spacing={5}>

@@ -25,59 +25,18 @@ import { CardActionArea, Card, CardContent, CardMedia, Chip, CardActions } from 
 import SwiperAutoSwitch from '@/components/Swiper/SwiperAutoSwitch';
 import { useRouter } from 'next/navigation';
 
+import View360, {
+  CubemapProjection,
+  EquirectProjection,
+} from "@egjs/react-view360"
+import { useMemo } from 'react';
+
 
 const sections = [
   { title: 'Home', url: '#' },
   { title: 'Pameran', url: '#' },
   { title: 'Blog', url: '#' },
   { title: 'Tentang Kami', url: '#' },
-];
-
-const sectionsOffline = [
-  { title: 'The Truth Inside You', url: '#' },
-  { title: 'Pameran Tetap', url: '#' },
-  { title: 'ImersifA', url: '#' },
-  { title: 'New Hope', url: '#' },
-  { title: '2madison Chapter #2', url: '#' },
-  { title: 'CHAIR: Limitless Odyssey', url: '#' },
-  { title: 'Hotel for Play', url: '#' },
-];
-
-const sectionsOnline = [
-  { title: 'The Truth Inside You', url: '#' },
-  { title: 'Pameran Tetap', url: '#' },
-  { title: 'ImersifA', url: '#' },
-  { title: 'Pameran Tetap', url: '#' },
-  { title: 'New Hope', url: '#' },
-  { title: 'The Spirit Within', url: '#' },
-];
-
-const mainFeaturedPost = {
-  title: 'Antaratma: Pameran Online dan Offline di Indonesia!',
-  description:
-    "Selamat datang di situs Pameran kami! Kami menyediakan informasi lengkap tentang pameran-pameran terbaru, baik yang dilaksanakan secara online maupun offline. Temukan beragam pilihan pameran yang menarik dan sesuai dengan kebutuhan Anda.",
-  image: 'https://vps.chipkoding.tech/upload/img/pattern_react.png',
-  imageText: 'main image description',
-  linkText: 'Continue reading…',
-};
-
-const featuredPosts = [
-  {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
-  {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
 ];
 
 // const posts = [post1, post2, post3];
@@ -161,6 +120,88 @@ const defaultTheme = createTheme();
 export default function DetailPameran() {
   const { push } = useRouter();
 
+  const data: any = {
+    // Scene 1
+    1: [
+      {
+        type: "search",
+        yaw: 232,
+        pitch: -14,
+        book: 1,
+      },
+      {
+        type: "search",
+        yaw: 133,
+        pitch: -18,
+        book: 2,
+      },
+      {
+        type: "search",
+        yaw: 186,
+        pitch: -17,
+        book: 3,
+      },
+      {
+        type: "link",
+        yaw: 94,
+        pitch: -8,
+        text: "Economy\nCulture",
+      },
+    ],
+    // Scene 2
+    2: [
+      {
+        type: "search",
+        yaw: 120,
+        pitch: -23,
+        book: 4,
+      },
+      {
+        type: "link",
+        yaw: -100,
+        pitch: -12,
+        text: "Technology\nScience",
+      },
+    ],
+  }
+  const [srcNum, setSrc] = React.useState(1)
+
+  const hotspots = data[srcNum]
+
+  const listSrc = [
+    "vps.chipkoding.tech/upload/360/1.jpg",
+    "vps.chipkoding.tech/upload/360/2.jpg",
+    "vps.chipkoding.tech/upload/360/3.jpg",
+    "vps.chipkoding.tech/upload/360/4.jpg",
+    "vps.chipkoding.tech/upload/360/5.jpg",
+    "vps.chipkoding.tech/upload/360/6.jpg",
+    "vps.chipkoding.tech/upload/360/7.jpg",
+    "vps.chipkoding.tech/upload/360/8.jpg",
+    "vps.chipkoding.tech/upload/360/9.jpg",
+    "vps.chipkoding.tech/upload/360/10.jpg",
+    "vps.chipkoding.tech/upload/360/11.jpg",
+    "vps.chipkoding.tech/upload/360/12.jpg",
+    "vps.chipkoding.tech/upload/360/13.jpg",
+    "vps.chipkoding.tech/upload/360/14.jpg",
+    "vps.chipkoding.tech/upload/360/15.jpg",
+    "vps.chipkoding.tech/upload/360/16.jpg",
+    "vps.chipkoding.tech/upload/360/18.jpg",
+    "vps.chipkoding.tech/upload/360/19.jpg",
+  ]
+
+  const projection = useMemo(
+    () =>
+      new EquirectProjection({
+        src: listSrc[srcNum],
+      }),
+    [srcNum]
+  )
+  const changeProjection = React.useCallback(() => {
+    // 2 if 1 or 1 if 2
+    const nextRoom = 3 - srcNum
+    setSrc(nextRoom)
+  }, [srcNum])
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -169,6 +210,30 @@ export default function DetailPameran() {
         
         <Button variant="outlined" sx={{ my: 3 }} onClick={() => push('/pameran')}>
             Go back
+        </Button>
+
+        <Box
+          sx={{
+            width: "100%",
+            height: 500,
+          }}
+        >
+          <View360
+            className="CLASS_A"
+            canvasClass="CLASS_B"
+            hotspot={{
+              zoom: true,
+            }}
+            projection={projection}
+          />
+        </Box>
+
+        <Button variant="outlined" sx={{ my: 3 }} onClick={() => changeProjection()}>
+            Back
+        </Button>
+
+        <Button variant="outlined" sx={{ my: 3 }} onClick={() => changeProjection()}>
+            Next
         </Button>
 
         <Grid container spacing={5}>
