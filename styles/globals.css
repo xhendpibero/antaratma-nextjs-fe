@@ -7,6 +7,21 @@ body {
   height: 100%;
 }
 
+.CLASS_A {
+  width: 100%;
+  height: 560px;
+}
+
+.CLASS_B {
+  width: 100%;
+  height: 560px;
+}
+
+.search12 {
+  width: 24px;
+  height: 24px;
+}
+
 code {
   font-family: 'Inter', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';
@@ -23,65 +38,7 @@ code[class*='language-'] {
   padding: 0;
 }
 
-.CLASS_A {
-  width: 100%;
-  height: 600px;
-}
 
-.search12 {
-  width: 24px;
-  height: 24px;
-}
-
-.search12:before {
-  position: absolute;
-  content: "";
-  width: 12px;
-  height: 12px;
-  top: 0px;
-  left: 0px;
-  border-radius: 50%;
-  border: 3px solid #fff;
-}
-
-.search12:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  left: 14px;
-  width: 3px;
-  height: 8px;
-  background: #fff;
-  transform-origin: 50% 0%;
-  transform: rotate(-45deg);
-}
-
-.link12 {
-  text-align: center;
-  font-weight: bold;
-  color: #fff;
-}
-
-.search12,
-.link12 {
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-.modal12 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-}
-.modal12[data-visible="true"] {
-  z-index: 9999;
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.7);
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
+.MuiTypography-root h1{
+  font-family: "Poppins";
 }
